@@ -9,7 +9,9 @@ USER root
 # (e.g., Node.js if you use Laravel Mix or Vite)
 RUN apk update && \
     apk add --no-cache curl nodejs npm && \
-    npm install -g npm@latest
+    npm install -g npm@latest && \
+    pecl install mongodb && \
+    docker-php-ext-enable mongodb
 
 # Copy your application code into the container
 COPY . .
